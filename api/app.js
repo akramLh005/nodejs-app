@@ -8,8 +8,8 @@ const bodyParser = require('body-parser');
 
 // Load in the mongoose models
 const { List } = require('./db/models/list.model'); 
-const { Task } = require('./db/models/Task.model'); 
-const { User } = require('./db/models/User.model');
+const { Task } = require('./db/models/task.model'); 
+const { User } = require('./db/models/user.model');
 
 const jwt = require('jsonwebtoken');
 
@@ -390,9 +390,17 @@ let deleteTasksFromList = (_listId) => {
     })
 }
 
+const path = require('path');
 
+  app.use(express.static('public'));
+  app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public/index.html'));
+})
+const normalizePort = require('normalize-port');
 
+var port = normalizePort(process.env.PORT || '8080');
+app.set('port', port);
 
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000");
+app.listen(port, () => {
+    console.log("Server is listening on port "+port);
 })

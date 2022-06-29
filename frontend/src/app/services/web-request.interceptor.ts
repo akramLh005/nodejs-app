@@ -9,7 +9,6 @@ import { catchError, tap, switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class WebReqInterceptor implements HttpInterceptor {
-
   constructor(private authService: AuthService) { }
 
   refreshingAccessToken: boolean;
@@ -25,7 +24,7 @@ export class WebReqInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         console.log(error);
-
+        
         if (error.status === 401) {
           // 401 error so we are unauthorized
 
@@ -71,7 +70,6 @@ export class WebReqInterceptor implements HttpInterceptor {
     }
     
   }
-
 
   addAuthHeader(request: HttpRequest<any>) {
     // get the access token

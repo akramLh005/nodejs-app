@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LogoutComponent } from './pages/logout/logout.component';
 import { EditListComponent } from './pages/edit-list/edit-list.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -13,6 +14,8 @@ const routes: Routes = [
   { path: 'new-list', component: NewListComponent },
   { path: 'edit-list/:listId', component: EditListComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
+
   { path: 'signup', component: SignupComponent },
   { path: 'lists', component: TaskViewComponent },
   { path: 'lists/:listId', component: TaskViewComponent },

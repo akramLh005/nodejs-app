@@ -9,9 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
   constructor( private authService: AuthService, private router: Router ) { }
-
+  
   ngOnInit(): void {
   }
   onLoginButtonClicked(email: string, password: string) {
@@ -19,9 +18,7 @@ export class LoginComponent implements OnInit {
       if (res.status === 200) {
         // we have logged in successfully
         this.router.navigate(['/lists']);
-      }
-      console.log(res);
-      
+      }   
     });
   }
 }
